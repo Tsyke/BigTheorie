@@ -1,32 +1,26 @@
-const client = require('nekos.life');
-const neko = new client();
-const Discord = require('discord.js');
-const config = require("../config.json")
-
+const { MessageEmbed } = require('discord.js');
+const superagent = require('superagent')
 module.exports = {
     name: "kiss",
-    description: "i see",
+    desc: "Affiche un embed",
+    permission: "Aucune",
     cate: 'Fun',
+    aliases: 'Aucun',
+
     async run(client, message, args) {
-        message.delete()
-        const idowner = `${config.botstat.ownerID}`
+        const embed = new MessageEmbed();
+        const { body } = await superagent.get("https://nekos.life/api/v2/img/kiss")
 
-        const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-        if (!user) return
-
-        neko.sfw.kiss().then(neko => {
-
-            var embed = new Discord.MessageEmbed()
-                .setDescription(`${message.author} embrasse ${user}`)
-                .setImage(`${neko.url}`)
-                .setColor("RANDOM")
-            message.channel.startTyping();
-            message.channel.send({ embed: embed })
-            message.channel.stopTyping();
-
-            console.log(`Kiss [1]`)
-        })
-
+        if (message.mentions.users.first() && message.mentions.users.first().id != message.author.id) {
+            embed.setColor("RANDOM");
+            embed.setTitle(`${message.author.username} kiss ${message.mentions.users.first().username} ❤`);
+            embed.setImage(body.url);
+        } else {
+            embed.setColor("RANDOM");
+            embed.setTitle(`${message.author.username} S'auto kiss ❤`);
+            embed.setImage(body.url);
+        }
+        message.channel.send({ embed: embed })
 
     }
 }
