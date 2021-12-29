@@ -1,0 +1,38 @@
+{
+  "name": "self-bot-discord",
+  "version": "1.0.2",
+  "description": "first self bot discord (Mr Swift)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "discord-remote-auth": "^1.1.0",
+    "discord-webhook-node": "^1.1.8",
+    "discord-ytdl-core": "^5.0.0",
+    "discord.js": "^12.5.3",
+    "discord.js-12": "^1.0.2",
+    "discord.js-patched-for-selfbots": "^12.5.6",
+    "discord.js-self": "^12.0.4",
+    "discord.js-selfbot-v11": "^11.5.1",
+    "edit-json-file": "^1.7.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "figlet": "^1.5.2",
+    "fs": "0.0.1-security",
+    "i": "^0.3.7",
+    "jalali-moment": "^3.3.10",
+    "json": "^11.0.0",
+    "nekos.life": "^2.0.7",
+    "npm": "^8.3.0",
+    "open": "^8.4.0",
+    "path": "^0.12.7",
+    "prompt": "^1.2.0",
+    "superagent": "^6.1.0",
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^4.9.2"
+  }
+}
